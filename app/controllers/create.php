@@ -11,7 +11,7 @@ class Create extends Controller {
             $username = $_POST['username'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-            $userModel = $this->loadModel('User');
+            $userModel = $this->model('User');
             if ($userModel->findUserByUsername($username)) {
                 $error = "Username already exists.";
                 $this->view('create/index', ['error' => $error]);
